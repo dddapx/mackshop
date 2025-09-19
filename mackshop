@@ -55,6 +55,20 @@ public class MackShop{
             System.out.print("Digite o ID do produto: ")
             Scanner id = entra.nextInt();
             System.out.print("Digite a quantidade desejada: ")
+            Scanner qtd = entra.nextInt();
+            for (int i = 0; i < idsProdutos.length; i++){
+                if (id == idsProdutos[i]){
+                    break;
+                }
+            }
+            for (i = 0; i < estoquesProdutos.length; i++){
+                if (// qtd == qtd do produto desse id, break)
+            }
+            vendaAtualIds.push(id);
+            vendaAtualQuantidades.push(qtd);
+        }
+        public static resumoAtual(resposta){
+            System.out.println("Itens da venda atual: " + //pega o id e tranforma no nome dos itens)
         }
         switch (resposta){
             case 1:
