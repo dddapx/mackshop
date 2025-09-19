@@ -48,7 +48,14 @@ public class MackShop{
             historicoItensVendidos = null;
             historicoValoresPedidos = null;
         }
-
+        public static exibeCatalogo(resposta){
+            const copiaEstoque = [...estoquesProdutos].filter (a => a > 0); //nao sei se é isso
+        }
+        public static addItem(resposta, int id, int qtd){
+            System.out.print("Digite o ID do produto: ")
+            Scanner id = entra.nextInt();
+            System.out.print("Digite a quantidade desejada: ")
+        }
         switch (resposta){
             case 1:
                 inicializar();
