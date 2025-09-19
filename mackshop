@@ -36,7 +36,17 @@ public class MackShop{
 
         // metodos
         public static inicializar(resposta){
+            idsProdutos = ;
+            nomesProdutos = ;
+            precosProdutos = ;
+            estoquesProdutos = ;
 
+            vendaAtualIds = null;
+            vendaAtualQuantidades = null;
+
+            historicoIdsPedidos = null;
+            historicoItensVendidos = null;
+            historicoValoresPedidos = null;
         }
 
         switch (resposta){
@@ -53,7 +63,13 @@ public class MackShop{
                 resumoAtual();
                 break;
             case 5:
-
+                finalizar();
+                break;
+            case 6:
+                historico();
+                break;
+            default:
+                System.out.print("Digite um número válido.");
         }
     } 
 }
