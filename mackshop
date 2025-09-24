@@ -1,96 +1,108 @@
 import java.util.Scanner;
 
 public class MackShop{
+    // VARIÁVEIS GLOBAIS
+    
+    // Catálogo de produtos
+    static int[] idsProdutos = new int[100];
+    static String[] nomesProdutos = new String[100];
+    static double[] precosProdutos = new double[100];
+    static int[] estoquesProdutos = new int[100];
+    static int totalProdutos = 0;
+    
+    // Venda atual
+    static int[] vendaAtualIds = new int[50];
+    static int[] vendaAtualQuantidades = new int[50];
+    static int totalItensVendaAtual = 0;
+    
+    // Histórico de vendas
+    static int[] historicoIdsPedidos = new int[200];
+    static double[] historicoValoresPedidos = new double[200];
+    static int[][] historicoItensVendidos = new int[500][3];
+    static int totalPedidos = 0;
+    static int totalItensHistorico = 0;
+
+    // Controle
+    static boolean baseInicializada = false;
+
+    static boolean validarBase(){
+        if(baseInicializada == true){
+            return true;
+        } else {
+            System.out.println("A base de produtos não foi inicializada. Por favor, inicialize primeiro.");
+            return false;
+        }
+    }
+
+    // MÉTODOS
+    public static void inicializarBase(){
+        // Produto 1
+        idsProdutos[0] = 1;
+        nomesProdutos[0] = "Mouse Gamer";
+        precosProdutos[0] = 150.00;
+        estoquesProdutos[0] = 10;
+        
+        // Produto 2
+        idsProdutos[1] = 2;
+        nomesProdutos[1] = "Teclado Mecânico";
+        precosProdutos[1] = 350.00;
+        estoquesProdutos[1] = 5;
+        
+        // Produto 3
+        idsProdutos[2] = 3;
+        nomesProdutos[2] = "Headset 7.1";
+        precosProdutos[2] = 420.50;
+        estoquesProdutos[2] = 3;
+        
+        totalProdutos = 3;
+        baseInicializada = true;
+        
+        System.out.println("Base inicializada com " + totalProdutos + " produtos!");
+    }
+
+    public static void exibirCatalogo() {
+        System.out.println("Catálogo de produtos:");
+        for (int i = 0; i < totalProdutos; i++) {
+            System.out.println("ID: " + idsProdutos[i] + " | Nome: " + nomesProdutos[i] + " | Preço: R$" + precosProdutos[i] + " | Estoque: " + estoquesProdutos[i]);
+        }
+    }
 
     public static void main(String[] args){
-        // catalogo
-        int idsProdutos [];
-        String nomesProdutos[];
-        double precosProdutos[];
-        int estoquesProdutos[];
+       Scanner input = new Scanner(System.in);
+       int opcao;
 
-        // venda atual
-        int vendaAtualIds[];
-        int vendaAtualQuantidades[];
-
-        // historico
-        int historicoIdsPedidos[];
-        double historicoValoresPedidos[];
-        int historicoItensVendidos[]{
-            
-        }
-
-        // menu
-        System.out.println("1. Inicializar base, (!obrigatoriamente a primeira!)");
-        System.out.println("2. Exibir catálogo de produtos");
-        System.out.println("3. Adicionar item à venda");
-        System.out.println("4. Ver resumo da venda atual");
-        System.out.println("5. Finalizar venda (gerar histórico e Nota Fiscal)");
-        System.out.println("6. Ver histórico de vendas");
-        System.out.println("7. Buscar venda específica do histórico");
-        System.out.println("8. (Admin) Repor estoque");
-        System.out.println("9. (Admin) Relatório de estoque baixo");
-
-        Scanner entra = new Scanner (System.in);
-        int resposta = entra.nextInt();
-
-        // metodos
-        public static inicializar(resposta){
-            idsProdutos = ;
-            nomesProdutos = ;
-            precosProdutos = ;
-            estoquesProdutos = ;
-
-            vendaAtualIds = null;
-            vendaAtualQuantidades = null;
-
-            historicoIdsPedidos = null;
-            historicoItensVendidos = null;
-            historicoValoresPedidos = null;
-        }
-        public static exibeCatalogo(resposta){
-            const copiaEstoque = [...estoquesProdutos].filter (a => a > 0); //nao sei se é isso
-        }
-        public static addItem(resposta, int id, int qtd){
-            System.out.print("Digite o ID do produto: ")
-            Scanner id = entra.nextInt();
-            System.out.print("Digite a quantidade desejada: ")
-            Scanner qtd = entra.nextInt();
-            for (int i = 0; i < idsProdutos.length; i++){
-                if (id == idsProdutos[i]){
-                    break;
-                }
-            }
-            for (i = 0; i < estoquesProdutos.length; i++){
-                if (// qtd == qtd do produto desse id, break)
-            }
-            vendaAtualIds.push(id);
-            vendaAtualQuantidades.push(qtd);
-        }
-        public static resumoAtual(resposta){
-            System.out.println("Itens da venda atual: " + //pega o id e tranforma no nome dos itens)
-        }
-        switch (resposta){
-            case 1:
-                inicializar();
-                break;
-            case 2:
-                exibeCatalogo();
-                break;
-            case 3:
-                addItem();
-                break;
-            case 4:
-                resumoAtual();
-                break;
-            case 5:
-                finalizar();
-                break;
-            case 6:
-                historico();
-                break;
-            default:
-                System.out.print("Digite um número válido.");
-        }
+       while(true){
+           System.out.println("Menu:");
+           System.out.println("1. Inicializar base, (!obrigatoriamente a primeira!)");
+           System.out.println("2. Exibir catálogo de produtos");
+           System.out.println("3. Adicionar item à venda");
+           System.out.println("4. Ver resumo da venda atual");
+           System.out.println("5. Finalizar venda (gerar histórico e Nota Fiscal)");
+           System.out.println("6. Ver histórico de vendas");
+           System.out.println("7. Buscar venda específica do histórico");
+           System.out.println("8. (Admin) Repor estoque");
+           System.out.println("9. (Admin) Relatório de estoque baixo");
+           System.out.print("Escolha uma opção: ");
+           opcao = input.nextInt();
+           input.nextLine(); // Limpar o buffer
+                
+           switch (opcao) {
+               case 1:
+                   inicializarBase();
+                   break;
+               case 2:
+                   if (validarBase() == true) {
+                       exibirCatalogo();
+                   }
+                   else {
+                    System.out.println("A base de produtos não foi inicializada. Por favor, inicialize primeiro.");
+                       break;
+                   }
+                   break;
+               default:
+                   System.out.println("Opção inválida!");
+                   break;
+           }
+       }
     } 
-}
+} 
